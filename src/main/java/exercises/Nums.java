@@ -2,6 +2,9 @@ package exercises;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Nums {
 //    给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。
 //
@@ -26,11 +29,23 @@ public class Nums {
             return nums;
         }
 
+    public int[] twoSumHash(int[] nums, int target) {
+        Map<Integer,Integer> hashMap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            if (hashMap.containsKey(target-nums[i])){
+                return new int[]{hashMap.get(target-nums[i]),i};
+            }
+            hashMap.put(nums[i],i);
+        }
+        return nums;
+    }
+
         @Test
         public void test(){
             int[] n = {2,7,11,15};
             int[] num = twoSum(n,9);
-            for (int i = 0;i < num.length;i++){
+            int[] m = twoSumHash(n,9);
+            for (int i = 0;i < m.length;i++){
                 System.out.println("n:" + i);
             }
         }
