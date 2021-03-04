@@ -3,8 +3,8 @@ package exercises;
 public class BubbleSort {
     public int[] sort(int[] bubble){
         int temp;
-        for (int i = 0; i < bubble.length-1; i++) {
-            for (int j = 0; j < bubble.length-i-1 ; j++) {
+        for (int i = 0; i < bubble.length; i++) {
+            for (int j = 0; j < bubble.length-1 ; j++) {
                 if (bubble[j] > bubble[j+1]){
                    temp = bubble[j];
                    bubble[j] = bubble[j+1];
